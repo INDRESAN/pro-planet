@@ -44,7 +44,9 @@ class Post(db.Model):
     img_url= db.Column(db.String(120), nullable=False)
 
 class Post_Participant(db.Model):
-    pid = db.Column(db.Integer, primary_key=True)
+    qid= db.Column(db.Integer, primary_key=True)
+    pid = db.Column(db.Integer, nullable=True)
+    tid = db.Column(db.Integer, nullable=False)
     user = db.Column(db.String(120), nullable=False)
     Participating = db.Column(db.Boolean,default=False)
     Posted = db.Column(db.Boolean,default=False)
@@ -99,30 +101,18 @@ def home():
 
 @app.route('/task',methods=['POST','GET'])
 def task():
-    tasks = Task.query.all()
+    if Post_Participant.query.filter_by(user=session['uname']).all():
+        tasks=Task.query.filter(~Post_Participant.query.filter_by(tid=Task.tid, user=session['uname'], Participating=True).exists()
+).all()
+    else:
+        tasks=Task.query.all()
     if request.method=='POST':
-         id=request.form['say']
-         print(id)
-        #return redirect(url_for('home'))
+        id=request.form['say']
+        add_participation = Post_Participant(tid=id,user=session['uname'],Participating = True)
+        db.session.add(add_participation)
+        db.session.commit()
+        return redirect(url_for("task"))
     return render_template("task_accept.html",tasks=tasks)
-
-
-
-@app.route('/request_accept',methods=['POST','GET'])
-def request_accept():
-    con=conn.connection.cursor()
-    con.execute("select ename,tj,locality,pincode,contact,wage from request where ename=%s")
-    result=con.fetchall()
-    return render_template("request_accept.html",result=result)
-
-@app.route('/completion',methods=['POST','GET'])
-def completion():
-        con=conn.connection.cursor()
-        query='delete from request where ename=%s;'
-        con.execute(query)
-        con.connection.commit()
-        con.close()
-        return render_template("completion.html")
 
 @app.route('/add_task',methods=['POST','GET'])
 def addTask():
@@ -134,6 +124,33 @@ def addTask():
         db.session.add(task)
         db.session.commit()
     return render_template("add_task.html",message=msg)
+
+@app.route('/post',methods=['POST','GET'])
+def post():
+    if request.method=='POST':
+        title = request.form["title"]
+        desc = request.form["desc"]
+        file = request.files['image']
+        if file.filename == '':
+            return "No selected file"
+        if file:
+        # Specify the path where you want to save the uploaded image
+            file.save('static/' + file.filename)
+        post = Post(title=title,Description=desc,owner=session['uname'],img_url=file.filename)
+        db.session.add(post)
+        db.session.commit()
+    return render_template("post.html")
+
+@app.route('/completion',methods=['POST','GET'])
+def completion():
+        con=conn.connection.cursor()
+        query='delete from request where ename=%s;'
+        con.execute(query)
+        con.connection.commit()
+        con.close()
+        return render_template("completion.html")
+
+
 
 if __name__ == '__main__':
     app.run(debug=True,port=5001)
