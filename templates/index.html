@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wage Daily-About</title>
+    <title>ProPlanet</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,6 +25,8 @@
         margin: 0;
         font-family: Arial;
         font-size: 17px;
+        background-color: rgb(0, 0, 0);
+        
     }
 
     .navi {
@@ -40,7 +42,7 @@
 
         width: auto;
         float: right;
-        color: white;
+        color: rgb(255, 255, 255);
         text-align: center;
         padding: 14px 20px;
         text-decoration: none;
@@ -56,14 +58,16 @@
     }
 
     .navi img {
-        height: 200px;
-        width: 360px;
+        padding-top: 20px;
+        height: 250px;
+        width: 250px;
+
     }
 
     #myVideo {
         z-index: 800;
-        width: 100%;
-        height: 100%;
+        width:100%;
+        height:100%;
 
     }
 
@@ -99,27 +103,30 @@
         margin-top: 100px;
         text-align: center;
     }
+
+   
 </style>
 </head>
 
 <body>
     <div class="navi">
-        <img src="{{url_for('static',filename='img2.png')}}">
+        <img src="{{url_for('static',filename='Logo3.png')}}">
         <a class="active" href="{{ url_for('signup')}}">LOGIN</a>
     </div>
     <video autoplay muted loop id="myVideo">
-        <source src="{{url_for('static',filename='vid.mp4')}}" type="video/mp4">
+        <source src="{{url_for('static',filename='bg3.mp4')}}" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
+  
 
     <div class="content">
         <h2 style="font-weight: bolder;font-size:50px;">About</h2>
-        <p>Welcome to our site!<br />Wage Daily is a site built by amateur coders, and is still in its beta stage, hence
+        <p>Welcome to our site!<br />Pro Planet is a site built by amateur coders, and is still in its beta stage, hence
             kindly excuse any errors that may occur
-            <br />this site was primarily built for the welfare of the daily wage workers in our country. We aim to
-            provide them with information of the available jobs in and around their area
-            <br /> By giving the workers information and providing employers a platform to find workers with, we can
-            remove the middleman and effectively increase the income for the workers<br>
+            <br />Our aims to empower users to make 
+            informed decisions and take tangible actions towards a greener future. <br>
+            <br />We track  environmental accomplishments and share them with others, 
+            inspiring collective action towards a greener future. <br>
         <div class="link">
             <h2>Follow us</h2>
             <pre>
