@@ -12,7 +12,7 @@
     }
 
     body {
-      background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7fbb8ab6-ef65-4905-9069-443fada8372b/dfgv08w-95eca533-72fa-4c85-8c53-7f7ef9cfea24.png/v1/fill/w_1280,h_854,q_80,strp/midjourney__purple_sunset_by_adornamancy_dfgv08w-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvN2ZiYjhhYjYtZWY2NS00OTA1LTkwNjktNDQzZmFkYTgzNzJiXC9kZmd2MDh3LTk1ZWNhNTMzLTcyZmEtNGM4NS04YzUzLTdmN2VmOWNmZWEyNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yIJBxd4NoQnnQNZT6K6ymEQPU3gfiDI5W0GjPPUep1g);
+      background-color: rgba(237, 237, 237, 0.961);
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -22,109 +22,110 @@
       z-index: 900;
       background-color: transparent;
       backdrop-filter: blur(20px);
+      border-color: rgb(0, 0, 0);
     }
 
     .navi a {
-      margin-right: 40px;
       width: auto;
       float: right;
-      color: white;
+      color: rgb(0, 0, 0);
       text-align: center;
       padding: 14px 20px;
       text-decoration: none;
       font-size: 20px;
-      margin-top: 70px;
+      margin-right: 40px;
+      margin-top: 50px;
+
     
-
-
     }
 
     .navi a:hover {
-      color: darkgrey;
+      color: rgb(0, 0, 0);
       padding: 30px;
       transition: .5s;
     }
 
     .navi img {
-      height: 200px;
-      width: 340px;
+      height: 300px;
+      width: 300px;
+      margin-top: -50px;
     }
 
     ul {
       list-style: none;
-      border: 1px solid white;
+      border: 1px solid rgb(255, 255, 255);
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0 4px 8px 0 rgba(65, 65, 65, 0.2), 0 6px 20px 0 rgba(52, 51, 51, 0.19);
+
     }
 
     .jobs {
-      display: flex;
       flex-direction: row;
-      width: 1800px;
-      flex-wrap: wrap;
+      width: 800px;
     }
 
     .part {
-      text-align: center;
       padding: 40px;
       backdrop-filter: blur(30px);
-      color: white;
+      color: rgb(0, 0, 0);
       font-weight: 80;
       font-size: 25px;
-      margin: 60px;
       border-radius: 10px;
+      
     }
 
-    .part:hover {
-      margin: 30px;
-      transition: .5s;
-    }
 
     .item1 {
       font-size: 50px;
     }
 
     .items {
-      border: 1px solid white;
+      border: 1px solid rgb(0, 0, 0);
       background-color: transparent;
-      color: white;
+      color: rgb(0, 0, 0);
       padding: 8px 10px;
 
     }
 
-    .items:hover {
-      color: transparent;
-      background-color: white;
-      transition: .4s;
-      color: grey;
-    }
 
     .title {
       text-align: center;
-      color: white;
+      color: rgb(255, 255, 255);
       font-family: "Kelly Slab";
       font-weight:1px;
       font-style: italic;
       font-size: 50px;
     }
     .empty{
-      border:1px solid white;
+      border:1px solid rgb(0, 0, 0);
       width:80%;
       margin:auto;
     }
+    .col4 img{
+      height: 50px;
+      width: 50px;
+    }
+    .container{
+      margin-left: 500px;
+    }
+
+   
   </style>
-  <title>Wage-Daily-Homepage</title>
+  <title>ProPlanet-Homepage</title>
 </head>
 
 <body>
-
+<div class="bar">
   <div class="navi">
-    <img src="{{url_for('static',filename='img2.png')}}" alt="img"></a>
-    <a class="active" href="{{url_for('task')}}">Tasks</a>
-    <a class="active" href="{{url_for('login')}}">LOGIN</a>
+    <img src="{{url_for('static',filename='ProPlanet__2.png')}}" alt="img"></a>
+    <a class="active" href="{{url_for('task')}}">TASKS</a>
+   
+    <a class="active" href="{{url_for('login')}}">LEADER BOARD</a>
+   
     <a class="active" href="{{url_for('index')}}">ABOUT</a>
   </div>
-  <p class="title">Requests</p>
-  <p class="empty"></p>
-
+</div>
+  
 
   <div class="container-fluid border-black jobs">
     {% for i in posts %}
@@ -145,12 +146,14 @@
   
 
     <div class="col-4 ">
+   
       <ul class="part">
-        <li class="item">fullname: {{profile[0]['fullname']}}</li>
-        <li class="item">id : {{profile[0]['id']}}</li>
-        <li class="item">email : {{profile[0]['email']}}</li>
-        <li class="item">points: {{profile[0]['points']}}</li>
-        <li class="item">upvotes : {{profile[0]['upvotes']}}</li>
+        <img src="https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg" alt="image" style="height: 100px;width:100px;border-radius: 50px;"><br><br>
+        <li class="item">Name: {{profile[0]['fullname']}}</li>
+        <li class="item">ID : {{profile[0]['id']}}</li>
+        <li class="item">E-mail : {{profile[0]['email']}}</li>
+        <li class="item">Points: {{profile[0]['points']}}</li>
+        <li class="item">Upvotes : {{profile[0]['upvotes']}}</li>
         <li class="item">Rank : {{profile[0]['Badge']}}</li>
       </ul>
     </div>
