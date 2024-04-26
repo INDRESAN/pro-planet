@@ -118,31 +118,44 @@
 
   <div class="navi">
     <img src="{{url_for('static',filename='img2.png')}}" alt="img"></a>
-    <a class="active" href="{{url_for('add_request')}}">REQUEST JOB</a>
-    <a class="active" href="{{url_for('add_worker')}}">LOGIN</a>
+    <a class="active" href="{{url_for('task')}}">Tasks</a>
+    <a class="active" href="{{url_for('login')}}">LOGIN</a>
     <a class="active" href="{{url_for('index')}}">ABOUT</a>
   </div>
   <p class="title">Requests</p>
   <p class="empty"></p>
 
   <div class="container-fluid border-black jobs">
-    {% for i in result %}
+    {% for i in posts %}
 
     <div class="col-4 ">
       <ul class="part">
-        <li class="item1">{{i[0]}} <small>INR/day</small></li>
-        <li class="item">name : {{i[1]}}</li>
-        <li class="item">job : {{i[2]}}</li>
-        <li class="item">district : {{i[3]}}</li>
-        <li class="item">locality : {{i[4]}}</li>
-        <li class="item">pincode : {{i[5]}}</li>
-        <li class="item">contact : {{i[6]}}</li>
-        <li class="item">workers needed : {{i[7]}}</li>
+        <li class="item">id: {{i[1]}}</li>
+        <li class="item">title : {{i[2]}}</li>
+        <li class="item">Description : {{i[3]}}</li>
+        <li class="item">image : {{i[4]}}</li>
         <form action="{{url_for('request_accept')}}" method="POST"><input type="submit" class="items"
-            id="button" value="Book"></form></a>
+            id="button" value="Approve!"></form></a>
+        <form action="{{url_for('request_accept')}}" method="POST"><input type="submit" class="items"
+            id="button" value="Disapprove"></form></a>
       </ul>
     </div>
     {% endfor %}
+  
+
+    <div class="col-4 ">
+      <ul class="part">
+        <li class="item">fullname: {{profile[0]['fullname']}}</li>
+        <li class="item">id : {{profile[0]['id']}}</li>
+        <li class="item">email : {{profile[0]['email']}}</li>
+        <li class="item">points: {{profile[0]['points']}}</li>
+        <li class="item">upvotes : {{profile[0]['upvotes']}}</li>
+        <li class="item">Rank : {{profile[0]['Badge']}}</li>
+        <form action="{{url_for('request_accept')}}" method="POST"><input type="submit" class="items"
+            id="button" value="Edit"></form></a>
+      </ul>
+    </div>
+
   </div>
   </section>
 </body>

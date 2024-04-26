@@ -21,6 +21,34 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     password = db.Column(db.String(120), nullable=False)
     fullname = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(20),nullable=True)
+    points = db.Column(db.Integer,default=50)
+    upvotes = db.Column(db.Integer,default=0)
+    Badge = db.Column(db.String(20),default="Rookie")
+
+class User_Leaderboard(db.Model):
+    rank = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    points = db.Column(db.Integer, nullable=False)
+
+class Task(db.Model):
+    tid = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(120), nullable=False)
+    Description = db.Column(db.String(240),nullable=False)
+
+class Post(db.Model):
+    pid = db.Column(db.Integer, primary_key=True)
+    owner = db.Column(db.String(120), nullable=False)
+    title = db.Column(db.String(120), nullable=False)
+    Description = db.Column(db.String(240),nullable=False)
+    img_url= db.Column(db.String(120), nullable=False)
+
+class Post_Participant(db.Model):
+    pid = db.Column(db.Integer, primary_key=True)
+    user = db.Column(db.String(120), nullable=False)
+    Participating = db.Column(db.Boolean,default=False)
+    Posted = db.Column(db.Boolean,default=False)
+
 
 with app.app_context():
     db.create_all()
@@ -32,58 +60,53 @@ app.secret_key="superhighsecretlock"
 def index():
     return render_template("index.html")
 
-@app.route('/add_worker',methods=['POST','GET'])
-def add_worker():
-    msg=''
-    if request.method=='POST':
-        auth = User.query.filter_by(fullname=session['uname'],password=session['pwd']).all()
-        if auth:
-            return redirect(url_for('home'))
-        else:
-            msg="Invalid Username/Password"
-    return render_template("add_worker.html",message=msg)
-
-'''@app.route('/add_request',methods=['POST','GET'])
-def add_request():
-    if request.method=='POST':
-        ename = request.form["ename"]
-        tj = request.form["tj"]
-        dist = request.form["dist"]
-        locality = request.form["locality"]
-        pincode = request.form["pincode"]
-        contact = request.form["contact"]
-        workreq = request.form["workreq"]
-        wage = request.form["wage"]
-
-        query = "insert into request(wage,ename,tj,dist,locality,pincode,contact,workreq) values(%s,%s,%s,%s,%s,%s,%s,%s) ;"
-        con.execute(query,(wage,ename,tj,dist,locality,pincode,contact,workreq))
-        con.connection.commit()
-        con.close()
-
-        return redirect(url_for('home'))
-  
-    return render_template("add_request.html")'''
 
 @app.route('/signup',methods=['POST','GET'])
 def signup():
     if request.method=="POST":
         uname = request.form["uname"]
+        email = request.form["email"]
         pwd = request.form["pswd"]
-        user = User(password=pwd, fullname=uname)
+        user = User(password=pwd, fullname=uname,email=email)
         db.session.add(user)
         db.session.commit()
-        session['uname']=uname
-        session['pwd']=pwd
-        return redirect(url_for('add_worker'))
+        return redirect(url_for('login'))
     return render_template('signup.html')
 
-'''
+
+@app.route('/login',methods=['POST','GET'])
+def login():
+    msg=''
+    if request.method=='POST':
+        uname = request.form["uname"]
+        pwd = request.form["pswd"]
+        auth = User.query.filter_by(fullname=uname,password=pwd).all()
+        if auth:
+            session['uname']=uname
+            session['pwd']=pwd
+            return redirect(url_for('home'))
+        else:
+            msg="Invalid Username/Password"
+    return render_template("login.html",message=msg)
+
+
 @app.route('/home',methods=['POST','GET'])
 def home():
-    con=conn.connection.cursor()
-    con.execute("select * from request;")
-    result=con.fetchall()
-    return render_template("home.html",result=result)
+    posts = Post.query.all()
+    profile = User.query.filter_by(fullname=session['uname'],password=session['pwd']).all()
+    return render_template("home.html",profile=profile,posts=posts)
+
+
+@app.route('/task',methods=['POST','GET'])
+def task():
+    tasks = Task.query.all()
+    if request.method=='POST':
+         id=request.form['say']
+         print(id)
+        #return redirect(url_for('home'))
+    return render_template("task_accept.html",tasks=tasks)
+
+
 
 @app.route('/request_accept',methods=['POST','GET'])
 def request_accept():
@@ -101,7 +124,16 @@ def completion():
         con.close()
         return render_template("completion.html")
 
-'''
+@app.route('/add_task',methods=['POST','GET'])
+def addTask():
+    msg=''
+    if request.method=='POST':
+        title = request.form["title"]
+        desc = request.form["desc"]
+        task = Task(title=title,Description=desc)
+        db.session.add(task)
+        db.session.commit()
+    return render_template("add_task.html",message=msg)
 
 if __name__ == '__main__':
     app.run(debug=True,port=5001)
