@@ -1,6 +1,6 @@
 from flask import render_template,request,Flask,redirect,url_for,session
 from flask_sqlalchemy import SQLAlchemy as _BaseSQLAlchemy
-
+from sqlalchemy import desc
 
 app=Flask(__name__)
 #database configuration
@@ -25,11 +25,6 @@ class User(db.Model):
     points = db.Column(db.Integer,default=50)
     upvotes = db.Column(db.Integer,default=0)
     Badge = db.Column(db.String(20),default="Rookie")
-
-class User_Leaderboard(db.Model):
-    rank = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), nullable=False)
-    points = db.Column(db.Integer, nullable=False)
 
 class Task(db.Model):
     tid = db.Column(db.Integer, primary_key=True)
@@ -141,15 +136,12 @@ def post():
         db.session.commit()
     return render_template("post.html")
 
-@app.route('/completion',methods=['POST','GET'])
-def completion():
-        con=conn.connection.cursor()
-        query='delete from request where ename=%s;'
-        con.execute(query)
-        con.connection.commit()
-        con.close()
-        return render_template("completion.html")
-
+@app.route('/leaderboard',methods=['POST','GET'])
+def leaderboard():
+        leaderboard = User.query.order_by(User.fullname.desc()).all()
+        leaderboard = [[leaderboard.index(i)+1,i] for i in leaderboard]
+        return render_template("leaderboard.html",leaderboard=leaderboard)
+        
 
 
 if __name__ == '__main__':
