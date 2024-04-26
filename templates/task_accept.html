@@ -113,27 +113,24 @@
 <body>
   <div class="navi">
     <img src="{{url_for('static',filename='img2.png')}}" alt="img"></a>
-    <a class="active" href="{{url_for('add_request')}}">REQUEST JOB</a>
-    <a class="active" href="{{url_for('add_worker')}}">LOGIN</a>
-    <a class="active" href="{{url_for('home')}}">ABOUT {{ name }}</a>
+    <a class="active" href="{{url_for('index')}}">about</a>
+    <a class="active" href="{{url_for('login')}}">LOGIN</a>
+    <a class="active" href="{{url_for('home')}}">home</a>
   </div>
   <div class="box1">
     <div class="box3">
-      {% for rsult in result %}
-      <p class="text">Employer Name : {{rsult[0]}}</p>
-      <p class="text">Type of job : {{rsult[1]}}</p>
-      <p class="text">Locality : {{rsult[2]}}</p>
-      <p class="text">Contact : {{rsult[3]}}</p>
-      <p class="text">Pincode : {{rsult[4]}}</p>
-      <form action="{{url_for('completion'}}"><input type="submit" class="buttons" value="book"></form>
-      <p class="text" id="wage">{{rsult[5]}} <small class="day">INR/day</small></p>
+      {% for task in tasks %}
+      <p class="text">id : {{task['tid']}}</p>
+      <p class="text">title : {{task['title']}}</p>
+      <p class="text">description : {{task['Description']}}</p>
+      <form action="{{ url_for('task') }}" method="POST">
+        <input name="say" id="say" value="{{ task['tid']}}" />
+        <input type="submit" class="buttons" value="Accept">
+      </form>
       {%endfor%}
 
     </div>
-
-
     <div class="box2">
-    
     </div>
     <img src="https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
     class="profile">

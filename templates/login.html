@@ -3,7 +3,7 @@
 
 <head>
   <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
-  <title>Create-Account</title>
+  <title>Login Page</title>
   <style>
     * {
       margin: 0px;
@@ -21,7 +21,7 @@
 
     .container {
       width: 500px;
-      margin-top: 11%;
+      margin-top: 14%;
       border-radius: 40px;
       background-color: transparent;
     }
@@ -46,25 +46,24 @@
     }
 
     .container input[type="text"],
-    .container input[type="password"],
-    .container input[type="email"] {
+    .container input[type="password"] {
       width: 100%;
       padding: 7px;
       margin-bottom: 25px;
       border: 1px transparent;
       background-color: transparent;
       color: white;
-      border-bottom:1px solid white;
-      
+      border-bottom: 1px solid white;
+
     }
 
     .container input[type="submit"] {
       padding: 9px 24px;
       background-color: transparent;
-      border:1px solid white;
+      border: 1px solid white;
       color: white;
       cursor: pointer;
-      margin-left:37%;
+      margin-left: 37%;
       width: 100px;
       border-radius: 4px;
       font-weight: bolder;
@@ -73,6 +72,7 @@
     .container input[type="submit"]:hover {
       background-color: #01bb0a;
     }
+
     .logo img {
       height: 300px;
       width: 600px;
@@ -80,56 +80,48 @@
       margin-left: 380px;
       margin-right: 40px;
     }
-    .section{
+
+    .section {
       display: flex;
     }
-    .forgot{
+
+    .forgot {
       margin-left: 130px;
       text-decoration: none;
       color: grey;
     }
-    .forgot:hover{
-      color:white;
+
+    .forgot:hover {
+      color: white;
     }
-    .sign{
+
+    .sign {
+      text-align: center;
+      text-decoration: none;
       width: 200px;
-      padding:15px;
+      padding: 15px;
       background-color: transparent;
-      border:1px solid white;
+      border: 1px solid white;
       border-radius: 4px;
       color: white;
-      position:absolute;
-      margin-left:155px;
-      margin-top:-60px;
+      position: absolute;
+      margin-left: 140px;
+      margin-top: -70px;
     }
-    .line{
-      margin-top:15px ;
-      width:100%;
-      border:1px solid white;
+
+    .line {
+      margin-top: 15px;
+      width: 100%;
+      border: 1px solid white;
     }
-    .sign:hover{
+
+    .sign:hover {
       background-color: #01bb0a;
     }
-    .line{
-      margin-top:15px ;
-      width:100%;
-      border:1px solid white;
-    }
-    .sign{
+
+    .msg {
       text-align: center;
-      width: 250px;
-      text-decoration: none;
-      padding:15px;
-      background-color: transparent;
-      border:1px solid white;
-      border-radius: 6px;
-      color: white;
-      position:absolute;
-      margin-left:120px;
-      margin-top:-70px;
-    }
-    .sign:hover{
-      background-color: #01bb0a;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -141,26 +133,21 @@
     </div>
     <div class="container">
       <div class="container1"><br><br>
-        <form action="{{url_for('signup')}}" method="POST">
+        <form action="{{url_for('login')}}" method="POST">
+
           <label for="username">Username </label>
-          <input type="text" id="uname" name="uname"  required>
-          <label for="username">Email id </label>
-          <input type="email" id="email" name="email"  required>
+          <input type="text" id="uname" name="uname" required>
 
           <label for="password">Password </label>
-          <input type="password" id="pswd" name="pswd"  required><br><br>
+          <input type="password" id="pswd" name="pswd" required><br>
+          <p class="msg">{{ message }}</p><br><br>
+          <input type="submit" value="login"><br><br>
+          <a class="forgot" href="#">Forgot password</a>
+          <div class="line"></div>
 
-          <input type="submit" value="Sign up" onclick="alert1()"><br><br>
-          <div class="line"></div>  
       </div>
       </form>
-      <a class="sign" href="{{url_for('login')}}" >Already have an account? Login</a>
-      <script>
-        function alert1(){
-          alert("new account added");
-        }
-
-      </script>
+      <a class="sign" href="{{url_for('signup')}}">Create new account</a>
     </div>
   </div>
 </body>

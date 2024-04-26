@@ -133,13 +133,13 @@
     </div>
     <div class="container">
       <div class="container1"><br><br>
-        <form action="{{url_for('add_worker')}}" method="POST">
+        <form action="{{url_for('addTask')}}" method="POST">
 
-          <label for="username">Username </label>
-          <input type="text" id="uname" name="uname" required>
+          <label for="username">Title </label>
+          <input type="text" id="title" name="title" required>
 
-          <label for="password">Password </label>
-          <input type="password" id="pswd" name="pswd" required><br>
+          <label for="password">Description </label>
+          <input type="text" id="desc" name="desc" required><br>
           <p class="msg">{{ message }}</p><br><br>
           <input type="submit" value="login"><br><br>
           <a class="forgot" href="#">Forgot password</a>
