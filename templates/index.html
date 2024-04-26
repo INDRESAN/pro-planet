@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wage Daily-About</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Roboto&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial;
+        font-size: 17px;
+    }
+
+    .navi {
+        width: 100%;
+        z-index: 900;
+        position: fixed;
+        background-color: transparent;
+
+    }
+
+    .navi a {
+      margin-right: 40px;
+
+        width: auto;
+        float: right;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 20px;
+        margin-top: 70px;
+        font-weight: lighter;
+    }
+
+    .navi a:hover {
+        color:  darkgrey;
+        padding: 30px;
+        transition: .5s;
+    }
+
+    .navi img {
+        height: 200px;
+        width: 360px;
+    }
+
+    #myVideo {
+        z-index: 800;
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .content {
+        text-align: center;
+        position: absolute;
+        z-index: 900;
+        bottom: 0;
+        margin-bottom: 50px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1;
+        width: 80%;
+        border-radius: 40px;
+        font-size: larger;
+        margin-left: 140px;
+        padding: 30px;
+    }
+
+    .content .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 50%;
+    }
+    .fa:hover {
+            opacity: 0.7;
+            color: gray;
+        }
+    .links {
+        margin-top: 100px;
+        text-align: center;
+    }
+</style>
+</head>
+
+<body>
+    <div class="navi">
+        <img src="{{url_for('static',filename='img2.png')}}">
+        <a class="active" href="{{ url_for('signup')}}">LOGIN</a>
+    </div>
+    <video autoplay muted loop id="myVideo">
+        <source src="{{url_for('static',filename='vid.mp4')}}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div class="content">
+        <h2 style="font-weight: bolder;font-size:50px;">About</h2>
+        <p>Welcome to our site!<br />Wage Daily is a site built by amateur coders, and is still in its beta stage, hence
+            kindly excuse any errors that may occur
+            <br />this site was primarily built for the welfare of the daily wage workers in our country. We aim to
+            provide them with information of the available jobs in and around their area
+            <br /> By giving the workers information and providing employers a platform to find workers with, we can
+            remove the middleman and effectively increase the income for the workers<br>
+        <div class="link">
+            <h2>Follow us</h2>
+            <pre>
+
+        <a href="#" id="links" class="fa fa-facebook" style="color: white;background-color: grey;"></a>        <a href="#" id="links" class="fa fa-twitter" style="color: white;background-color: grey;"></a>         <a href="#" id="links" class="fa fa-google" style="color: white;background-color: grey;"></a>         <a href="#" id="links" class="fa fa-linkedin" style="color: white;background-color: grey;"></a>         <a href="#" id="links" class="fa fa-youtube" style="color: white;background-color: grey;"></a>         <a href="#" id="links" class="fa fa-instagram" style="color: white;background-color: grey;">     </a></pre>
+        </div>
+
+    </div>
+</body>
+
+</html>

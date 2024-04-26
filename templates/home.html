@@ -1,0 +1,150 @@
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Kelly+Slab" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
+  <style>
+    * {
+      margin: 0px;
+     
+    }
+
+    body {
+      background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7fbb8ab6-ef65-4905-9069-443fada8372b/dfgv08w-95eca533-72fa-4c85-8c53-7f7ef9cfea24.png/v1/fill/w_1280,h_854,q_80,strp/midjourney__purple_sunset_by_adornamancy_dfgv08w-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvN2ZiYjhhYjYtZWY2NS00OTA1LTkwNjktNDQzZmFkYTgzNzJiXC9kZmd2MDh3LTk1ZWNhNTMzLTcyZmEtNGM4NS04YzUzLTdmN2VmOWNmZWEyNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yIJBxd4NoQnnQNZT6K6ymEQPU3gfiDI5W0GjPPUep1g);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .navi {
+      width: 100%;
+      z-index: 900;
+      background-color: transparent;
+      backdrop-filter: blur(20px);
+    }
+
+    .navi a {
+      margin-right: 40px;
+      width: auto;
+      float: right;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      margin-top: 70px;
+    
+
+
+    }
+
+    .navi a:hover {
+      color: darkgrey;
+      padding: 30px;
+      transition: .5s;
+    }
+
+    .navi img {
+      height: 200px;
+      width: 340px;
+    }
+
+    ul {
+      list-style: none;
+      border: 1px solid white;
+    }
+
+    .jobs {
+      display: flex;
+      flex-direction: row;
+      width: 1800px;
+      flex-wrap: wrap;
+    }
+
+    .part {
+      text-align: center;
+      padding: 40px;
+      backdrop-filter: blur(30px);
+      color: white;
+      font-weight: 80;
+      font-size: 25px;
+      margin: 60px;
+      border-radius: 10px;
+    }
+
+    .part:hover {
+      margin: 30px;
+      transition: .5s;
+    }
+
+    .item1 {
+      font-size: 50px;
+    }
+
+    .items {
+      border: 1px solid white;
+      background-color: transparent;
+      color: white;
+      padding: 8px 10px;
+
+    }
+
+    .items:hover {
+      color: transparent;
+      background-color: white;
+      transition: .4s;
+      color: grey;
+    }
+
+    .title {
+      text-align: center;
+      color: white;
+      font-family: "Kelly Slab";
+      font-weight:1px;
+      font-style: italic;
+      font-size: 50px;
+    }
+    .empty{
+      border:1px solid white;
+      width:80%;
+      margin:auto;
+    }
+  </style>
+  <title>Wage-Daily-Homepage</title>
+</head>
+
+<body>
+
+  <div class="navi">
+    <img src="{{url_for('static',filename='img2.png')}}" alt="img"></a>
+    <a class="active" href="{{url_for('add_request')}}">REQUEST JOB</a>
+    <a class="active" href="{{url_for('add_worker')}}">LOGIN</a>
+    <a class="active" href="{{url_for('index')}}">ABOUT</a>
+  </div>
+  <p class="title">Requests</p>
+  <p class="empty"></p>
+
+  <div class="container-fluid border-black jobs">
+    {% for i in result %}
+
+    <div class="col-4 ">
+      <ul class="part">
+        <li class="item1">{{i[0]}} <small>INR/day</small></li>
+        <li class="item">name : {{i[1]}}</li>
+        <li class="item">job : {{i[2]}}</li>
+        <li class="item">district : {{i[3]}}</li>
+        <li class="item">locality : {{i[4]}}</li>
+        <li class="item">pincode : {{i[5]}}</li>
+        <li class="item">contact : {{i[6]}}</li>
+        <li class="item">workers needed : {{i[7]}}</li>
+        <form action="{{url_for('request_accept')}}" method="POST"><input type="submit" class="items"
+            id="button" value="Book"></form></a>
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+  </section>
+</body>
+
+</html>

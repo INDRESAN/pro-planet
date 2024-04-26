@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
+  <title>Login Page</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7fbb8ab6-ef65-4905-9069-443fada8372b/dfgv08w-95eca533-72fa-4c85-8c53-7f7ef9cfea24.png/v1/fill/w_1280,h_854,q_80,strp/midjourney__purple_sunset_by_adornamancy_dfgv08w-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvN2ZiYjhhYjYtZWY2NS00OTA1LTkwNjktNDQzZmFkYTgzNzJiXC9kZmd2MDh3LTk1ZWNhNTMzLTcyZmEtNGM4NS04YzUzLTdmN2VmOWNmZWEyNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yIJBxd4NoQnnQNZT6K6ymEQPU3gfiDI5W0GjPPUep1g);
+      color: white;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+
+    .container {
+      width: 500px;
+      margin-top: 14%;
+      border-radius: 40px;
+      background-color: transparent;
+    }
+
+    .container1 {
+      padding: 60px;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+      border-radius: 20px;
+      box-shadow: 9px 9px 60px black;
+      padding-bottom: 100px;
+    }
+
+    .container h2 {
+      text-align: center;
+      font-size: xx-large;
+      margin-top: 20px;
+    }
+
+    .container label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .container input[type="text"],
+    .container input[type="password"] {
+      width: 100%;
+      padding: 7px;
+      margin-bottom: 25px;
+      border: 1px transparent;
+      background-color: transparent;
+      color: white;
+      border-bottom: 1px solid white;
+
+    }
+
+    .container input[type="submit"] {
+      padding: 9px 24px;
+      background-color: transparent;
+      border: 1px solid white;
+      color: white;
+      cursor: pointer;
+      margin-left: 37%;
+      width: 100px;
+      border-radius: 4px;
+      font-weight: bolder;
+    }
+
+    .container input[type="submit"]:hover {
+      background-color: #01bb0a;
+    }
+
+    .logo img {
+      height: 300px;
+      width: 600px;
+      margin-top: 30%;
+      margin-left: 380px;
+      margin-right: 40px;
+    }
+
+    .section {
+      display: flex;
+    }
+
+    .forgot {
+      margin-left: 130px;
+      text-decoration: none;
+      color: grey;
+    }
+
+    .forgot:hover {
+      color: white;
+    }
+
+    .sign {
+      text-align: center;
+      text-decoration: none;
+      width: 200px;
+      padding: 15px;
+      background-color: transparent;
+      border: 1px solid white;
+      border-radius: 4px;
+      color: white;
+      position: absolute;
+      margin-left: 140px;
+      margin-top: -70px;
+    }
+
+    .line {
+      margin-top: 15px;
+      width: 100%;
+      border: 1px solid white;
+    }
+
+    .sign:hover {
+      background-color: #01bb0a;
+    }
+
+    .msg {
+      text-align: center;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <div class="logo">
+      <img src="{{url_for('static',filename='img2.png')}}">
+    </div>
+    <div class="container">
+      <div class="container1"><br><br>
+        <form action="{{url_for('add_worker')}}" method="POST">
+
+          <label for="username">Username </label>
+          <input type="text" id="uname" name="uname" required>
+
+          <label for="password">Password </label>
+          <input type="password" id="pswd" name="pswd" required><br>
+          <p class="msg">{{ message }}</p><br><br>
+          <input type="submit" value="login"><br><br>
+          <a class="forgot" href="#">Forgot password</a>
+          <div class="line"></div>
+
+      </div>
+      </form>
+      <a class="sign" href="{{url_for('signup')}}">Create new account</a>
+    </div>
+  </div>
+</body>
+
+</html>

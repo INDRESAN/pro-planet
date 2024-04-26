@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Booking-Confirmed</title>
+    <style>
+        .fa {
+            padding: 20px;
+            font-size: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            color: white;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+            color: gray;
+        }
+
+        body {
+            background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7fbb8ab6-ef65-4905-9069-443fada8372b/dfgv08w-95eca533-72fa-4c85-8c53-7f7ef9cfea24.png/v1/fill/w_1280,h_854,q_80,strp/midjourney__purple_sunset_by_adornamancy_dfgv08w-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvN2ZiYjhhYjYtZWY2NS00OTA1LTkwNjktNDQzZmFkYTgzNzJiXC9kZmd2MDh3LTk1ZWNhNTMzLTcyZmEtNGM4NS04YzUzLTdmN2VmOWNmZWEyNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yIJBxd4NoQnnQNZT6K6ymEQPU3gfiDI5W0GjPPUep1g);
+            font-family: Arial, Helvetica, sans-serif;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .box1 {
+            border: 1px solid black;
+            border-radius: 10px;
+            margin:auto;
+            padding: 20px;
+            width: 1000px;
+            border-color: transparent;
+            box-shadow: 0 14px 18px 0 rgb(0, 0, 0), 0 16px 25px 0 rgb(0, 0, 0);
+            background-color: transparent;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+            text-align: center;
+            font-weight: lighter;
+            color: white;
+            font-size: xx-large;
+
+        }
+
+        .button {
+            font-size: medium;
+            padding: 10px;
+            border-radius: 4px;
+            border:1px solid white;
+            color: white;
+            text-decoration: none;
+            background-color: transparent;
+            box-shadow: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .button:hover {
+            background-color: green;
+        }
+        .navi {
+      width: 100%;
+      z-index: 900;
+      background-color: transparent;
+      backdrop-filter: blur(20px);
+    }
+        .navi a {
+      margin-right: 40px;
+
+            width: auto;
+            float: right;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            margin-top: 70px;
+            font-weight: lighter;
+        }
+
+        .navi a:hover {
+            color: darkgrey;
+            padding: 30px;
+            transition: .5s;
+        }
+
+        .navi img {
+            height: 200px;
+            width: 360px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navi">
+        <img src="{{url_for('static',filename='img2.png')}}">
+        <a class="active" href="{{ url_for('signup')}}">LOGIN</a><a class="active"
+            href="{{ url_for('home')}}">HOME</a>
+    </div>
+    <div class="box1">
+        <h1>THANK YOU</h1><br>
+        <h6>Your booking has been confirmed. We will contact you in a short time.<br> We are requesting you to be
+            available on the location.</h6>
+
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-google"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-youtube"></a>
+        <a href="#" class="fa fa-instagram"></a>
+    </div>
+</body>
+
+</html>

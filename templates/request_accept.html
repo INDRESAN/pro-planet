@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request-Details</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
+  <style>
+    body {
+      background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7fbb8ab6-ef65-4905-9069-443fada8372b/dfgv08w-95eca533-72fa-4c85-8c53-7f7ef9cfea24.png/v1/fill/w_1280,h_854,q_80,strp/midjourney__purple_sunset_by_adornamancy_dfgv08w-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvN2ZiYjhhYjYtZWY2NS00OTA1LTkwNjktNDQzZmFkYTgzNzJiXC9kZmd2MDh3LTk1ZWNhNTMzLTcyZmEtNGM4NS04YzUzLTdmN2VmOWNmZWEyNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yIJBxd4NoQnnQNZT6K6ymEQPU3gfiDI5W0GjPPUep1g);
+      font-family: Arial, Helvetica, sans-serif;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .box1 {
+      border: 1px solid black;
+      height:360px;
+      border-radius: 10px;
+      margin-top: 70px;
+      margin-left: 220px;
+      padding: 40px;
+      width: 1400px;
+      border-color: transparent;
+      box-shadow: 0 14px 18px 0 rgb(0, 0, 0), 0 16px 25px 0 rgb(0, 0, 0);
+      background-color: transparent;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+
+    }
+
+    .buttons{
+      margin-left: 80%;
+      width: 180px;
+      height: 50px;
+      border-radius: 10px;
+      font-size: larger;
+      background-color:transparent;
+      border: 1px solid white;
+      color: white;
+    }
+
+    .buttons:hover {
+      background-color: green;
+      color: white;
+    }
+
+    .text {
+      font-size: 25px;
+      font-weight: lighter;
+      text-decoration: none;
+      color: white;
+      margin-left: 350px;
+    }
+
+    .navi {
+      width: 100%;
+      z-index: 900;
+      background-color: transparent;
+      backdrop-filter: blur(20px);
+    }
+
+    .navi a {
+      margin-right: 40px;
+
+      width: auto;
+      float: right;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      margin-top: 70px;
+
+
+
+    }
+
+    .navi a:hover {
+      color: darkgrey;
+      padding: 30px;
+      transition: .5s;
+    }
+
+    .navi img {
+      height: 200px;
+      width: 340px;
+    }
+
+    .profile {
+      position: absolute;
+      top:39%;
+      width: 300px;
+      height: 300px;
+    }
+    .box3{
+      margin-top: 60px;
+    }
+    #wage{
+      position: absolute;
+      left:55%;
+      top:40%;
+      font-size: 50px;
+    }
+    .day{
+      color:white;
+      font-size: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navi">
+    <img src="{{url_for('static',filename='img2.png')}}" alt="img"></a>
+    <a class="active" href="{{url_for('add_request')}}">REQUEST JOB</a>
+    <a class="active" href="{{url_for('add_worker')}}">LOGIN</a>
+    <a class="active" href="{{url_for('home')}}">ABOUT {{ name }}</a>
+  </div>
+  <div class="box1">
+    <div class="box3">
+      {% for rsult in result %}
+      <p class="text">Employer Name : {{rsult[0]}}</p>
+      <p class="text">Type of job : {{rsult[1]}}</p>
+      <p class="text">Locality : {{rsult[2]}}</p>
+      <p class="text">Contact : {{rsult[3]}}</p>
+      <p class="text">Pincode : {{rsult[4]}}</p>
+      <form action="{{url_for('completion'}}"><input type="submit" class="buttons" value="book"></form>
+      <p class="text" id="wage">{{rsult[5]}} <small class="day">INR/day</small></p>
+      {%endfor%}
+
+    </div>
+
+
+    <div class="box2">
+    
+    </div>
+    <img src="https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
+    class="profile">
+  </div>
+
+</body>
+
+</html>
