@@ -8,11 +8,15 @@
   <title>Request-Details</title>
   <link rel="shortcut icon" type="image/x-icon" href="{{url_for('static',filename='favicon.ico')}}">
   <style>
+    *{
+      color:white;
+    }
     body {
-      background-image: url(https://wallpapercave.com/wp/wp12864264.png);
+      background-image: url('https://images.unsplash.com/photo-1617957772097-93dc166cd335?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       font-family: Arial, Helvetica, sans-serif;
       background-repeat: no-repeat;
       background-size: cover;
+      backdrop-filter: blur(100px);
     }
 
 
@@ -25,7 +29,6 @@
       font-size: larger;
       background-color:transparent;
       border: 1px solid white;
-      color: rgb(0, 0, 0);
     }
 
     .buttons:hover {
@@ -37,7 +40,6 @@
       font-size: 25px;
       font-weight: lighter;
       text-decoration: none;
-      color: rgb(0, 0, 0);
       margin-left: 350px;
     }
 
@@ -53,7 +55,6 @@
 
       width: auto;
       float: right;
-      color: rgb(0, 0, 0);
       text-align: center;
       padding: 14px 20px;
       text-decoration: none;
@@ -106,7 +107,7 @@
 
 <body>
   <div class="navi">
-    <img src="{{url_for('static',filename='ProPlanet__2.png')}}" alt="img"></a>
+    <img src="{{url_for('static',filename='Logo3.png')}}" alt="img"></a>
 
     <!--PROFILE-->
     <a class="active" href="{{url_for('profile')}}">PROFILE</a>

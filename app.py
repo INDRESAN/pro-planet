@@ -152,8 +152,6 @@ def leaderboard():
         leaderboard = User.query.order_by(User.points.desc()).all()
         leaderboard = [[leaderboard.index(i)+1,i] for i in leaderboard]
         return render_template("leaderboard.html",leaderboard=leaderboard)
-        
-
-
+ 
 if __name__ == '__main__':
     app.run(debug=True,port=5001)

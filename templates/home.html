@@ -157,8 +157,8 @@ form .button{
         <!--Profile-->
         <a class="active" href="{{url_for('profile')}}">PROFILE</a>
     <a class="active" href="{{url_for('task')}}">TASKS</a>
-   
-    <a class="active" href="{{url_for('login')}}">LEADER BOARD</a>
+    <a class="active" href="{{url_for('post')}}">POST</a>
+    <a class="active" href="{{url_for('leaderboard')}}">LEADER BOARD</a>
 
 
    
@@ -180,6 +180,7 @@ form .button{
         <li class="item"></li><img src="{{url_for('static',filename='')}}{{i['img_url']}}" /></p>
         <form action="{{url_for('home')}}" method="POST"><input type="submit"
             id="button" value="Support"></i>
+
         <input name="say" id="say" value="{{ i['owner']}}"  style="display:none;" />
           </form></a>
           <span><h3><br><i id="like"  class="fa-solid fa-heart" style="color: #000000;"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa-solid fa-share" style="color: #000000;"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa-solid fa-flag" style="color: #000000;"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa-regular fa-bookmark" style="color: #000000;"></i></li></h3></span>
