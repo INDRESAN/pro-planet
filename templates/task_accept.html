@@ -15,20 +15,7 @@
       background-size: cover;
     }
 
-    .box1 {
-      border: 1px solid black;
-      height:360px;
-      border-radius: 10px;
-      margin-top: 70px;
-      margin-left: 220px;
-      padding: 40px;
-      width: 1400px;
-      border-color: transparent;
-      box-shadow: 0 14px 18px 0 rgb(0, 0, 0), 0 16px 25px 0 rgb(0, 0, 0);
-      background-color: transparent;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
 
-    }
 
     .buttons{
       margin-left: 80%;
@@ -124,7 +111,7 @@
       <p class="text">title : {{task['title']}}</p>
       <p class="text">description : {{task['Description']}}</p>
       <form action="{{ url_for('task') }}" method="POST">
-        <input name="say" id="say" value="{{ task['tid']}}" />
+        <input name="say" id="say" value="{{ task['tid']}}" style="display:none;" />
         <input type="submit" class="buttons" value="Accept">
       </form>
       {%endfor%}

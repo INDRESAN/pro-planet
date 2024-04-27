@@ -91,6 +91,12 @@ def login():
 def home():
     posts = Post.query.all()
     profile = User.query.filter_by(fullname=session['uname'],password=session['pwd']).all()
+    if request.method=='POST':
+        uname=request.form['say']
+        add_points = User.query.filter_by(fullname=uname).first()
+        add_points.points+=50
+        db.session.commit()
+
     return render_template("home.html",profile=profile,posts=posts)
 
 
@@ -138,7 +144,7 @@ def post():
 
 @app.route('/leaderboard',methods=['POST','GET'])
 def leaderboard():
-        leaderboard = User.query.order_by(User.fullname.desc()).all()
+        leaderboard = User.query.order_by(User.points.desc()).all()
         leaderboard = [[leaderboard.index(i)+1,i] for i in leaderboard]
         return render_template("leaderboard.html",leaderboard=leaderboard)
         
