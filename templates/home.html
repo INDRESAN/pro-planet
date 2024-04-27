@@ -61,7 +61,8 @@
 
     .jobs {
       flex-direction: row;
-      width: 800px;
+      width: 2000px;
+      margin-left: 500px;
     }
 
     .part {
@@ -69,21 +70,19 @@
       backdrop-filter: blur(30px);
       color: rgb(0, 0, 0);
       font-weight: 80;
-      font-size: 25px;
       border-radius: 10px;
+    
       
     }
 
 
-    .item1 {
-      font-size: 50px;
-    }
+    
 
     .items {
       border: 1px solid rgb(0, 0, 0);
       background-color: transparent;
       color: rgb(0, 0, 0);
-      padding: 8px 10px;
+      padding: 8px;
 
     }
 
@@ -102,15 +101,51 @@
       margin:auto;
     }
     .col4 img{
-      height: 50px;
-      width: 50px;
+      height: 500px;
+      width: 500px;
     }
     .container{
       margin-left: 500px;
     }
 
+    .fa-heart-o {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+.pic{
+  height: 20px;
+  width:20px;
+}
+form .button{
+      margin-left: 25%;
+      width: 180px;
+      height: 50px;
+      border-radius: 10px;
+      font-size: larger;
+      background-color:transparent;
+      border: 1px solid white;
+      color: rgb(0, 0, 0);
+    }
    
   </style>
+  <script>
+    $(document).ready(function(){
+  $("#heart").click(function(){
+    if($("#heart").hasClass("liked")){
+      $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+      $("#heart").removeClass("liked");
+    }else{
+      $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+      $("#heart").addClass("liked");
+    }
+  });
+});
+  </script>
   <title>ProPlanet-Homepage</title>
 </head>
 
@@ -132,26 +167,31 @@
 </div>
   
 
-  <div class="container-fluid border-black jobs">
+  <div class="jobs">
     {% for i in posts %}
   
     <div class="col-4 ">
       <ul class="part">
-        <li class="item">poster: {{i['owner']}}</li>
-        <li class="item">id: {{i['pid']}}</li>
-        <li class="item">title : {{i['title']}}</li>
-        <li class="item">Description : {{i['Description']}}</li>
-        <li class="item">image :</li><img style="width:500px;height:500px;" src="{{url_for('static',filename='')}}{{i['img_url']}}" />
-        <form action="{{url_for('home')}}" method="POST"><input type="submit" class="items"
-            id="button" value="Approve!">
+        <li class="item"><span id="pic"><img src="{{url_for('static',filename='img3.png')}}" style="height: 40px;width: 40px;border-color: black;"><h4 style="font-weight: bold;"></span> {{i['owner']}}</h4></li>
+       
+        <li class="item"><h2>{{i['title']}}</h2></li>
+        <li class="item"><p>ID: {{i['pid']}}</li>
+        <li class="item"><p> {{i['Description']}}</li>
+        <li class="item"></li><img src="{{url_for('static',filename='')}}{{i['img_url']}}" /></p>
+        <form action="{{url_for('home')}}" method="POST"><input type="submit"
+            id="button" value="Support"></i>
+
         <input name="say" id="say" value="{{ i['owner']}}"  style="display:none;" />
           </form></a>
+          <span><h3><br><i id="like"  class="fa-solid fa-heart" style="color: #000000;"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa-solid fa-share" style="color: #000000;"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa-solid fa-flag" style="color: #000000;"></i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<i class="fa-regular fa-bookmark" style="color: #000000;"></i></li></h3></span>
+                
       </ul>
     </div>
     {% endfor %}
 
   </div>
   </section>
+  <script src="https://kit.fontawesome.com/7da80e0258.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

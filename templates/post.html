@@ -12,7 +12,7 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7fbb8ab6-ef65-4905-9069-443fada8372b/dfgv08w-95eca533-72fa-4c85-8c53-7f7ef9cfea24.png/v1/fill/w_1280,h_854,q_80,strp/midjourney__purple_sunset_by_adornamancy_dfgv08w-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvN2ZiYjhhYjYtZWY2NS00OTA1LTkwNjktNDQzZmFkYTgzNzJiXC9kZmd2MDh3LTk1ZWNhNTMzLTcyZmEtNGM4NS04YzUzLTdmN2VmOWNmZWEyNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.yIJBxd4NoQnnQNZT6K6ymEQPU3gfiDI5W0GjPPUep1g);
+      background-image: url('https://images.unsplash.com/photo-1617957772097-93dc166cd335?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
       color: white;
       background-repeat: no-repeat;
       background-size: cover;
@@ -75,7 +75,7 @@
 
     .logo img {
       height: 300px;
-      width: 600px;
+      width: 300px;
       margin-top: 30%;
       margin-left: 380px;
       margin-right: 40px;
@@ -136,7 +136,7 @@
       padding: 14px 20px;
       text-decoration: none;
       font-size: 20px;
-      margin-top: 70px;
+      margin-top: 30px;
       font-weight: lighter;
       margin-right: 40px;
     }
@@ -148,8 +148,9 @@
     }
 
     .navi img {
-      height: 200px;
-      width: 360px;
+      height: 300px;
+      width: 300px;
+      margin-top: -40px;
     }
     .hk{
       background-color:rgb(33, 33, 33);
@@ -168,7 +169,7 @@
 
 <body>
   <div class="navi">
-    <img src="{{url_for('static',filename='img2.png')}}">
+    <img src="{{url_for('static',filename='ProPlanet__1.png')}}">
     <a class="active" href="{{ url_for('signup')}}">LOGIN</a><a class="active"
       href="{{ url_for('home')}}">HOME</a>
   </div>
