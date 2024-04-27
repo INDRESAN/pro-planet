@@ -12,23 +12,22 @@
     }
 
     body {
-      background-image: url('https://images.unsplash.com/photo-1617957772097-93dc166cd335?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-color: aliceblue;
       background-repeat: no-repeat;
-      background-size:cover;
-      backdrop-filter: blur(7px);
+      background-size: 1000px;
     }
 
     .navi {
       width: 100%;
       z-index: 900;
       background-color: transparent;
-      border-color: rgb(255, 255, 255);
+      border-color: rgb(0, 0, 0);
     }
 
     .navi a {
       width: auto;
       float: right;
-      color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
       text-align: center;
       padding: 14px 20px;
       text-decoration: none;
@@ -40,7 +39,7 @@
     }
 
     .navi a:hover {
-      color: rgb(145, 145, 145);
+      color: rgb(0, 0, 0);
       padding: 30px;
       transition: .5s;
     }
@@ -71,7 +70,8 @@
       font-weight: 80;
       font-size: 25px;
       border-radius: 10px;
-      
+      margin-left: 50px;
+      margin-right: 100px;
     }
 
 
@@ -111,16 +111,15 @@
 
    
   </style>
-  <title>ProPlanet-Homepage</title>
+  <title>Profile-Page</title>
 </head>
 
 <body>
 <div class="bar">
   <div class="navi">
-    <img src="{{url_for('static',filename='ProPlanet__1.png')}}" alt="img"></a>
+    <img src="{{url_for('static',filename='ProPlanet__2.png')}}" alt="img"></a>
 
         <!--Profile-->
-        <a class="active" href="{{url_for('profile')}}">PROFILE</a>
     <a class="active" href="{{url_for('task')}}">TASKS</a>
    
     <a class="active" href="{{url_for('login')}}">LEADER BOARD</a>
@@ -131,29 +130,7 @@
   </div>
 </div>
   
-
-  <div class="container">
-    {% for i in posts %}
-
-    <div class="col-4 ">
       <ul class="part">
-        <li class="item">id : {{i[1]}}</li>
-        <li class="item" style="font-size: 4px;">title : {{i[2]}}</li>
-        <li class="item">Description : {{i[3]}}</li>
-        <li class="item">image : {{i[4]}}</li>
-
-        <form action="{{url_for('request_accept')}}" method="POST"><input type="submit" class="items"
-            id="button" value="Approve!"></form></a>
-        <form action="{{url_for('request_accept')}}" method="POST"><input type="submit" class="items"
-            id="button" value="Disapprove"></form></a>
-      </ul>
-    </div>
-    {% endfor %}
-  
-
-    <div class="col-4 ">
-   <!--
-      <ul class="part1">
         <img src="https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg" alt="image" style="height: 100px;width:100px;border-radius: 50px;"><br><br>
         <li class="item">Name: {{profile[0]['fullname']}}</li>
         <li class="item">ID : {{profile[0]['id']}}</li>
@@ -161,7 +138,7 @@
         <li class="item">Points: {{profile[0]['points']}}</li>
         <li class="item">Upvotes : {{profile[0]['upvotes']}}</li>
         <li class="item">Rank : {{profile[0]['Badge']}}</li>
-      </ul>-->
+      </ul>
     </div>
 
   </div>
