@@ -104,6 +104,11 @@ def profile():
     profile = User.query.filter_by(fullname=session['uname'],password=session['pwd']).all()
     return render_template("Profile.html",profile=profile)
 
+@app.route('/serives',methods=['POST','GET'])
+def service():
+    profile = User.query.filter_by(fullname=session['uname'],password=session['pwd']).all()
+    return render_template("service.html",profile=profile)
+
 
 @app.route('/task',methods=['POST','GET'])
 def task():
