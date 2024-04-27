@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            background-image:url('https://images.unsplash.com/photo-1617957772097-93dc166cd335?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+         background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+        .navi {
+      width: 100%;
+      z-index: 900;
+      background-color: transparent;
+      border-color: rgb(255, 255, 255);
+    }
+
+    .navi a {
+      width: auto;
+      float: right;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      margin-right: 40px;
+      margin-top: 50px;
+
+    
+    }
+
+    .navi a:hover {
+      color: rgb(145, 145, 145);
+      padding: 30px;
+      transition: .5s;
+    }
+
+    .navi img {
+      height: 300px;
+      width: 300px;
+      margin-top: -50px;
+    }
+
+        h1{
+            text-align: center;
+            color:rgb(227, 227, 233);
+          
+            font-family: sans-serif;
+            font-size: 100px;
+        }
+        div p{
+            text-align: center;
+            margin-left: 30%;
+            margin-right: 30%;
+            margin-top: 10%;
+        }
+        h2{
+            text-align: center;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="bar">
+        <div class="navi">
+          <img src="{{url_for('static',filename='ProPlanet__1.png')}}" alt="img"></a>
+      
+              <!--Profile-->
+              <a class="active" href="{{url_for('profile')}}">PROFILE</a>
+          <a class="active" href="{{url_for('task')}}">TASKS</a>
+         
+          <a class="active" href="{{url_for('leaderboard')}}">LEADER BOARD</a>
+      
+      
+         
+          <a class="active" href="{{url_for('index')}}">ABOUT</a>
+        </div>
+      </div>
+        
+    <h1 style="margin-left: 36%;margin-right: 30%;margin-top: 150px;">CONTACT US</h1>
+    <div>
+    <p style="color: azure;margin-right: 25%;">This is the website where you could your blogs so that the writtings are spread all around the world .So the public could also get your thoughts.There is no restrictions for any guilty topic ,you are free to show your feelings and thoughts here.For any other queries ,contact us on our contact number 97654321 or email on proplanetofficial@gmail.com</p>
+    </div><br>
+    <h2 style="color: azure;">THANK YOU!!!</h2>
+        </a>
+      </div>
+</body>
+</html>
