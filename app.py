@@ -99,6 +99,11 @@ def home():
 
     return render_template("home.html",profile=profile,posts=posts)
 
+@app.route('/profile',methods=['POST','GET'])
+def profile():
+    profile = User.query.filter_by(fullname=session['uname'],password=session['pwd']).all()
+    return render_template("Profile.html",profile=profile)
+
 
 @app.route('/task',methods=['POST','GET'])
 def task():
