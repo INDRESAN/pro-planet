@@ -174,52 +174,17 @@
   </div>
   <div class="container">
     <div class="container1"><br><br>
-      <form action="{{url_for('add_request')}}" method="POST">
-        <h4>ENTER YOUR DETAILS</h4><br><br>
-        <label for="uname">Employer name :</label>
-        <input type="text" placeholder='enter employer name' name="ename" required><br>
-        <label for="uname">Type of job :</label>
-        <select name="tj" id="job">
-          <option value="" selected disabled hidden>---select work---</option>
-          <option class="hk">Manual Labour</option>
-          <option class="hk">Gardener</option>
-          <option class="hk">House Keeper</option>
-          <option class="hk">Painter</option>
-        </select><br><br><br>
-
-        <label for="uname">District :</label>
-        <select name="dist" id="dis">
-          <option selected disabled hidden>---select city--</option>
-          <option class="hk">Chennai</option>
-          <option class="hk">Coimbatore</option>
-          <option class="hk">Ooty</option>
-          <option class="hk">Pondicherry</option>
-          <optio class="hk">Kanyakumari</option>
-            <option class="hk">Erode</option>
-        </select><br><br><br>
-        <label for="uname">Locality :</label>
-        <input type="text" placeholder='ex : saravanampatti' name="locality" required><br>
-        <label for="uname">Pincode :</label>
-        <input type="text" placeholder='ex XXXXXX' name="pincode" required><br>
-        <label for="uname">Contact :</label>
-        <input type="text" placeholder='ex : +91 XXXXX XXXXX' name="contact" required><br>
-        <label for="uname">Workers required :</label>
-        <input type="text" placeholder='ex : 5' name="workreq" required><br>
-        <label for="pwd">Wage(per person/per day) :</label>
-        <select name="wage" id="dis">
-          <option selected disabled hidden>---select amount---</option>
-          <option class="hk">500</option>
-          <option class="hk">800</option>
-          <option class="hk">1200</option>
-          <option class="hk">1500</option>
-          <option class="hk">2000</option>
-        </select><br>
-        <button class="sign">Make Request</button><br><br>
+      <form action="{{url_for('post')}}" method="POST"  enctype="multipart/form-data">
+        <label >Title:</label>
+        <input type="text" id="title" name="title"/>
+        <label >Description:</label>
+        <input type="text" id="desc" name="desc"/>
         <label for="avatar">Choose a profile picture:</label>
-        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+        <input type="file" id="image" name="image" accept="image/png, image/jpeg,image/jpg" />
+        <input type="submit" value="submit">
       </form>
     </div>
   </div>
 </body>
 
-</html>
+</html> 

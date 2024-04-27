@@ -15,7 +15,7 @@
       background-size: cover;
     }
 
-   
+
 
     .buttons{
       margin-left: 25%;
@@ -121,7 +121,7 @@
       <p class="text">Task Title : {{task['title']}}</p>
       <p class="text">Description : {{task['Description']}}</p>
       <form action="{{ url_for('task') }}" method="POST">
-        <input name="say" id="say" value="{{ task['tid']}}" style="display: none;"/>
+        <input name="say" id="say" value="{{ task['tid']}}" style="display:none;" />
         <input type="submit" class="buttons" value="Accept">
         
       </form>
