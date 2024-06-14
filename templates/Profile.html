@@ -10,36 +10,36 @@
       margin: 0px;
      
     }
-
     body {
-      background-color: aliceblue;
+      background-image: url('https://images.unsplash.com/photo-1497250681960-ef046c08a56e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); 
       background-repeat: no-repeat;
-      background-size: 1000px;
-    }
-
-    .navi {
+      height: 100%;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+}
+   
+.navi {
       width: 100%;
       z-index: 900;
       background-color: transparent;
-      border-color: rgb(0, 0, 0);
+      border-color: rgb(255, 255, 255);
     }
 
     .navi a {
       width: auto;
       float: right;
-      color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
       text-align: center;
       padding: 14px 20px;
       text-decoration: none;
       font-size: 20px;
       margin-right: 40px;
       margin-top: 50px;
-
-    
     }
 
     .navi a:hover {
-      color: rgb(0, 0, 0);
+      color: rgb(145, 145, 145);
       padding: 30px;
       transition: .5s;
     }
@@ -52,8 +52,8 @@
 
     ul {
       list-style: none;
-      border: 1px solid rgb(255, 255, 255);
-      background-color: rgb(255, 255, 255);
+   
+
       box-shadow: 0 4px 8px 0 rgba(65, 65, 65, 0.2), 0 6px 20px 0 rgba(52, 51, 51, 0.19);
 
     }
@@ -66,7 +66,7 @@
     .part {
       padding: 40px;
       backdrop-filter: blur(30px);
-      color: rgb(0, 0, 0);
+
       font-weight: 80;
       font-size: 25px;
       border-radius: 10px;
@@ -108,6 +108,20 @@
     .container{
       margin-left: 500px;
     }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    .part{
+      margin: 30px;
+      background-color: #ffffff;
+      border: 1px solid black;
+      opacity: 0.6;
+
+    }
+    .active{
+      color: white;
+    }
 
    
   </style>
@@ -115,23 +129,25 @@
 </head>
 
 <body>
-<div class="bar">
-  <div class="navi">
-    <img src="{{url_for('static',filename='ProPlanet__2.png')}}" alt="img"></a>
+  <div class="bar">
+    <div class="navi">
+      <img src="{{url_for('static',filename='ProPlanet__1.png')}}" alt="img"></a>
 
-        <!--Profile-->
-    <a class="active" href="{{url_for('task')}}">TASKS</a>
-   
-    <a class="active" href="{{url_for('login')}}">LEADER BOARD</a>
-
-
-   
-    <a class="active" href="{{url_for('index')}}">ABOUT</a>
+      <a class="active" href="{{url_for('home')}}">HOME</a>
+      <a class="active" href="{{url_for('task')}}">TASKS</a>
+      <a class="active" href="{{url_for('post')}}">POST</a>
+      <a class="active" href="{{url_for('leaderboard')}}">LEADER BOARD</a>
+      <a class="active" href="{{url_for('index')}}">ABOUT</a>
+    </div>
   </div>
-</div>
   
       <ul class="part">
-        <img src="https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg" alt="image" style="height: 100px;width:100px;border-radius: 50px;"><br><br>
+        <img src="{{url_for('static',filename='')}}{{filename}}" alt="image" style="height: 100px;width:100px;border-radius: 50px;"><br><br>
+        <form action="{{url_for('profile')}}" method="POST" enctype="multipart/form-data">
+        <label for="image">Update profile picture:</label>
+        <input type="file" id="image" name="image" accept="image/png, image/jpeg,image/jpg" />
+        <button type="submit">Upload</button>
+        </form>
         <li class="item">Name: {{profile[0]['fullname']}}</li>
         <li class="item">ID : {{profile[0]['id']}}</li>
         <li class="item">E-mail : {{profile[0]['email']}}</li>

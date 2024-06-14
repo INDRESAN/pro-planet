@@ -25,6 +25,7 @@ class User(db.Model):
     points = db.Column(db.Integer,default=50)
     upvotes = db.Column(db.Integer,default=0)
     Badge = db.Column(db.String(20),default="Rookie")
+    profile_pic=db.Column(db.String(20),default="")
 
 class Task(db.Model):
     tid = db.Column(db.Integer, primary_key=True)
@@ -102,7 +103,15 @@ def home():
 @app.route('/profile',methods=['POST','GET'])
 def profile():
     profile = User.query.filter_by(fullname=session['uname'],password=session['pwd']).all()
-    return render_template("Profile.html",profile=profile)
+    file_name="https://i.pinimg.com/736x/09/21/fc/0921fc87aa989330b8d403014bf4f340.jpg"
+    if request.method=='POST':
+        file_name= request.files['image']
+        print(file_name)
+        if file_name:
+        # Specify the path where you want to save the uploaded image
+            file_name.save('static/' + file_name.filename)
+            file_name=file_name.filename
+    return render_template("Profile.html",profile=profile,filename=file_name)
 
 
 @app.route('/task',methods=['POST','GET'])
